@@ -33,4 +33,164 @@ This structured dataset enables a robust analysis of sales patterns, customer be
 - Power BI: Employed to build an interactive dashboard, enabling dynamic data exploration and visual storytelling of insights.
 - GitHub: Used for version control, documentation, and portfolio building, providing a platform to showcase the project.
 
+### Data Characteristics
+----
+The dataset includes the following variables:
+- Order: A unique identifier for each order transaction that helps differentiate between individual orders.
+- Customer Id: A unique identifier for each customer which links orders or subscriptions back to specific customers, useful for customer analysis.
+- Product: Represents the specific product ordered
+- Region: Geographic region where the customer or order originates (North, South, East & West)
+- Order Date: The date when the order was placed
+- Quantity: The number of units ordered
+- UnitPrice: The price per unit of the product
+- Total Revenue: The total revenue from each order, likely calculated as ```Quantity * UnitPrice```.
+- Customer Name: The full name of the customer
+- Subscription Type: The type or level of subscription (e.g., Basic, Premium, Standard)
+- Subscription Start: The starting date of the customer’s subscription
+- Subscription End: The end date of the customer’s subscription
+- Canceled: Indicates whether the subscription has been canceled
+- SUBSCRIPTION DURATION: The length of the subscription in days, months, or years
+- AVERAGE SUBSCRIPTION: Likely represents the average subscription length or revenue per customer.
+
+  ### Methodology
+  ----
+### Data Overview and Initial Inspection
+Action: Load the dataset in Excel or Power BI and do a preliminary inspection to understand its structure, types of data in each column, and overall cleanliness.
+Tools: Excel filters and Power BI's data view.
+Outcome: Helps identify any immediate issues, like duplicates, missing values, or formatting inconsistencies.
+### Remove Duplicates
+Action: Check for and remove any duplicate rows, especially in critical columns like Order, Customer ID, and Product. This is essential for accurate calculations, like total revenue or unique customer counts.
+Tools: Excel (Remove Duplicates) or SQL (SELECT DISTINCT).
+Outcome: Ensures each record in the dataset is unique.
+### Handle Missing Values
+Action:
+Identify missing values in crucial columns such as Customer ID, Order Date, Quantity, UnitPrice, Subscription Type, etc.
+Decide how to handle missing data:
+For numeric columns (Quantity, UnitPrice), consider replacing with the mean, median, or mode if the missing rate is low.
+For categorical columns (Region, Product), use the most common value or create an "Unknown" category.
+If essential columns like Order Date are missing, consider removing those rows, as they may hinder time-based analysis.
+Tools: Excel (Conditional Formatting), SQL, or Power BI (Transform Data).
+Outcome: Reduces bias and inconsistency in the dataset caused by missing values.
+### Standardize Data Formats
+Action: Standardize the format of each column to ensure consistency, especially for dates, numbers, and currency.
+Convert date fields (Order Date, Subscription Start, Subscription End) to a consistent date format (e.g., YYYY-MM-DD).
+Ensure numeric fields like UnitPrice and Total Revenue are formatted to 2 decimal places.
+Tools: Excel (Format Cells), Power BI, or SQL functions (e.g., CAST or FORMAT).
+Outcome: Ensures data integrity and compatibility for calculations and visualizations.
+### Correct Data Types
+Action: Check and set data types for each column (e.g., dates, numbers, text).
+Tools: Power BI (Data Model view), SQL (ALTER TABLE), or Excel.
+Outcome: Prevents errors in calculations, like aggregating text values or string-based dates.
+### Identify and Address Outliers
+Action: Detect outliers in numerical fields (Quantity, UnitPrice, Total Revenue) and assess if they’re legitimate or potential data entry errors.
+For outliers caused by mistakes, correct the values or cap them if necessary.
+For legitimate outliers, flag them for further analysis, as they may provide insights (e.g., unusually large orders).
+Tools: Excel charts, Power BI (visualizations like box plots), or SQL.
+Outcome: Makes the dataset more robust by minimizing the impact of erroneous outliers.
+### Create New Variables (Feature Engineering)
+Action: Generate additional columns to add value to the analysis, such as:
+Total Revenue: Calculate if missing by using Quantity * UnitPrice.
+Subscription Duration: Calculate the length of each subscription as Subscription End - Subscription Start.
+Tools: Excel (calculated columns), SQL (DATEDIFF for date calculations), or Power BI (New Column in Data Model).
+Outcome: Adds depth to the dataset, enabling analysis of revenue, customer lifecycle, and subscription patterns.
+### Standardize Categorical Data
+Action: Ensure uniformity in categorical columns (Region, Product, Subscription Type):
+Remove extra spaces, standardize casing (e.g., title case), and correct spelling inconsistencies.
+Map similar categories together if necessary (e.g., merging "North America" and "NA" into "North America").
+Tools: Excel (Find and Replace), Power BI transformations, or SQL (REPLACE function).
+Outcome: Improves consistency, making analysis and visualization easier and more accurate.
+### Data Validation and Logical Consistency Checks
+Action: Perform logical checks, such as:
+Ensuring Subscription End dates are after Subscription Start.
+Verifying that Quantity and Unit Price are positive values.
+Checking that calculated revenue values match expected results.
+Tools: Excel, Power BI, or SQL (conditional statements).
+Outcome: Ensures that the data meets logical business rules, making it trustworthy for decision-making.
+### Final Checks and Documentation
+Action:
+Perform a final review of the cleaned data, confirming that all transformations are applied correctly.
+Document each cleaning step in GitHub, detailing the rationale and impact of the changes made.
+Outcome: A fully prepared, clean dataset ready for insights generation and visualization, with transparent documentation for reproducibility.
+
+### Analysis
+---
+### Analysis Questions
+- retrieve the total sales for each product category.
+- find the number of sales transactions in each region.
+- find the highest-selling product by total sales value.
+- calculate total revenue per product.
+- calculate monthly sales totals for the current year.
+- find the top 5 customers by total purchase amount.
+- calculate the percentage of total sales contributed by each region.
+- identify products with no sales in the last quarter
+- retrieve the total number of customers from each region.
+- find the most popular subscription type by the number of customers.
+- find customers who canceled their subscription within 6 months.
+- calculate the average subscription duration for all customers.
+- find customers with subscriptions longer than 12 months.
+- calculate total revenue by subscription type.
+- find the top 3 regions by subscription cancellations.
+- find the total number of active and canceled subscriptions
+
+### Approach
+---
+### Data Visualization
+Each question was addressed using descriptive statistics, visualizations, and statistical tests to determine significance and identify key trends.
+
+![LITA SALES 1](https://github.com/user-attachments/assets/781174d9-d9a9-4e35-b69a-82c1a43ce292)
+
+![LITA SALES 2](https://github.com/user-attachments/assets/aea8fcf8-04aa-48b3-b150-278a61f5b7b2)
+
+![Customer Segmentation 1](https://github.com/user-attachments/assets/100d56b4-b1e0-4a38-ac01-50ce09cb30e0)
+
+![Customer Segmentation 2](https://github.com/user-attachments/assets/03cae4b6-d315-4b1f-81e3-12cd4a6b6330)
+
+
+### Data Analysis
+----
+This is where we include some basic lines of code or queries during the analysis in SQL
+``` ---------Retrieve the Total Sales from each product category-------
+
+SELECT sum (Quantity) As Total_Sales, PRODUCT from [dbo].[UD Sales Data]
+group by PRODUCT
+order by 1 desc
+```
+
+``` -------Number of Sales transactions in each region------
+
+SELECT Region, COUNT(Quantity) AS NumberOfTransactions
+FROM [dbo].[UD Sales Data]
+GROUP BY Region;
+```
+
+``` ------Monthly Sales Totals for the Current Year------
+
+SELECT Month(Orderdate) AS Month,SUM(Quantity * Unitprice) AS Monthly_Sales
+FROM [dbo].[UD Sales Data]
+WHERE Year(Orderdate) = Year(Getdate())
+GROUP by Month(Orderdate);
+```
+
+``` ----The most popular subsription type by the numbers of customers----
+Select Top 1 [SubscriptionType],COUNT(Distinct [CustomerID]) AS Total_Customers
+From [dbo].[LITA Capstone Dataset - Customer Segment UDUAK]
+Group by SubscriptionType
+Order by Total_Customers desc;
+```
+
+``` ----The Total number of active and canceled Subscriptions----
+SELECT 
+    COUNT(CASE WHEN Canceled = 1 THEN 1 END) AS Active_subscriptions,
+    COUNT(CASE WHEN Canceled = 0 THEN 1 END) AS Canceled_subscriptions
+FROM [dbo].[LITA Capstone Dataset - Customer Segment UDUAK];
+```
+
+
+
+
+
+
+
+
+
 
