@@ -55,62 +55,33 @@ The dataset includes the following variables:
   ### Methodology
   ----
 ### Data Overview and Initial Inspection
-Action: Load the dataset in Excel or Power BI and do a preliminary inspection to understand its structure, types of data in each column, and overall cleanliness.
-Tools: Excel filters and Power BI's data view.
-Outcome: Helps identify any immediate issues, like duplicates, missing values, or formatting inconsistencies.
+Loaded the dataset in Excel & Power BI and did a preliminary inspection to understand its structure, types of data in each column, and overall cleanliness.
 ### Remove Duplicates
-Action: Check for and remove any duplicate rows, especially in critical columns like Order, Customer ID, and Product. This is essential for accurate calculations, like total revenue or unique customer counts.
-Tools: Excel (Remove Duplicates) or SQL (SELECT DISTINCT).
-Outcome: Ensures each record in the dataset is unique.
+Checked for and removed any duplicate rows, especially in critical columns like Order, Customer ID, and Product. This is essential for accurate calculations, like total revenue or unique customer counts.
 ### Handle Missing Values
-Action:
-Identify missing values in crucial columns such as Customer ID, Order Date, Quantity, UnitPrice, Subscription Type, etc.
-Decide how to handle missing data:
-For numeric columns (Quantity, UnitPrice), consider replacing with the mean, median, or mode if the missing rate is low.
-For categorical columns (Region, Product), use the most common value or create an "Unknown" category.
-If essential columns like Order Date are missing, consider removing those rows, as they may hinder time-based analysis.
-Tools: Excel (Conditional Formatting), SQL, or Power BI (Transform Data).
-Outcome: Reduces bias and inconsistency in the dataset caused by missing values.
+Identified missing values in crucial columns such as Customer ID, Order Date, Quantity, UnitPrice, Subscription Type, etc.
 ### Standardize Data Formats
-Action: Standardize the format of each column to ensure consistency, especially for dates, numbers, and currency.
+Standardized the format of each column to ensure consistency, especially for dates, numbers, and currency.
 Convert date fields (Order Date, Subscription Start, Subscription End) to a consistent date format (e.g., YYYY-MM-DD).
 Ensure numeric fields like UnitPrice and Total Revenue are formatted to 2 decimal places.
-Tools: Excel (Format Cells), Power BI, or SQL functions (e.g., CAST or FORMAT).
-Outcome: Ensures data integrity and compatibility for calculations and visualizations.
 ### Correct Data Types
-Action: Check and set data types for each column (e.g., dates, numbers, text).
-Tools: Power BI (Data Model view), SQL (ALTER TABLE), or Excel.
-Outcome: Prevents errors in calculations, like aggregating text values or string-based dates.
-### Identify and Address Outliers
-Action: Detect outliers in numerical fields (Quantity, UnitPrice, Total Revenue) and assess if they’re legitimate or potential data entry errors.
-For outliers caused by mistakes, correct the values or cap them if necessary.
-For legitimate outliers, flag them for further analysis, as they may provide insights (e.g., unusually large orders).
-Tools: Excel charts, Power BI (visualizations like box plots), or SQL.
-Outcome: Makes the dataset more robust by minimizing the impact of erroneous outliers.
+Checked and set data types for each column (e.g., dates, numbers, text).
 ### Create New Variables (Feature Engineering)
-Action: Generate additional columns to add value to the analysis, such as:
+Generated additional columns to add value to the analysis, such as:
 Total Revenue: Calculate if missing by using Quantity * UnitPrice.
 Subscription Duration: Calculate the length of each subscription as Subscription End - Subscription Start.
-Tools: Excel (calculated columns), SQL (DATEDIFF for date calculations), or Power BI (New Column in Data Model).
-Outcome: Adds depth to the dataset, enabling analysis of revenue, customer lifecycle, and subscription patterns.
 ### Standardize Categorical Data
-Action: Ensure uniformity in categorical columns (Region, Product, Subscription Type):
+Ensured uniformity in categorical columns (Region, Product, Subscription Type):
 Remove extra spaces, standardize casing (e.g., title case), and correct spelling inconsistencies.
 Map similar categories together if necessary (e.g., merging "North America" and "NA" into "North America").
-Tools: Excel (Find and Replace), Power BI transformations, or SQL (REPLACE function).
-Outcome: Improves consistency, making analysis and visualization easier and more accurate.
 ### Data Validation and Logical Consistency Checks
-Action: Perform logical checks, such as:
+Performed logical checks, such as:
 Ensuring Subscription End dates are after Subscription Start.
 Verifying that Quantity and Unit Price are positive values.
 Checking that calculated revenue values match expected results.
-Tools: Excel, Power BI, or SQL (conditional statements).
-Outcome: Ensures that the data meets logical business rules, making it trustworthy for decision-making.
 ### Final Checks and Documentation
-Action:
-Perform a final review of the cleaned data, confirming that all transformations are applied correctly.
+Performed a final review of the cleaned data, confirming that all transformations are applied correctly.
 Document each cleaning step in GitHub, detailing the rationale and impact of the changes made.
-Outcome: A fully prepared, clean dataset ready for insights generation and visualization, with transparent documentation for reproducibility.
 
 ### Analysis
 ---
