@@ -52,8 +52,8 @@ The dataset includes the following variables:
 - SUBSCRIPTION DURATION: The length of the subscription in days, months, or years
 - AVERAGE SUBSCRIPTION: Likely represents the average subscription length or revenue per customer.
 
-  ### Methodology
-  ----
+### Methodology
+----
 ### Data Overview and Initial Inspection
 Loaded the dataset in Excel & Power BI and did a preliminary inspection to understand its structure, types of data in each column, and overall cleanliness.
 ### Remove Duplicates
@@ -69,7 +69,7 @@ Checked and set data types for each column (e.g., dates, numbers, text).
 ### Create New Variables (Feature Engineering)
 Generated additional columns to add value to the analysis, such as:
 Total Revenue: Calculate if missing by using Quantity * UnitPrice.
-Subscription Duration: Calculate the length of each subscription as Subscription End - Subscription Start.
+Subscription Duration: Calculated the length of each subscription as Subscription End - Subscription Start.
 ### Standardize Categorical Data
 Ensured uniformity in categorical columns (Region, Product, Subscription Type):
 Remove extra spaces, standardize casing (e.g., title case), and correct spelling inconsistencies.
