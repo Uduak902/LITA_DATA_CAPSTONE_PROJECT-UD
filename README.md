@@ -29,8 +29,8 @@ This structured dataset enables a robust analysis of sales patterns, customer be
 
 ### Tools Used
 - Microsoft Excel: Utilized for initial data cleaning, analysis, and visualizations to gain preliminary insights. [Download Here](https://www.microsoft.com)  
-- SQL (Structured Query Language): Used for data querying and manipulation to extract relevant subsets and perform advanced data cleaning. [Download Server Here](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) and [SMSS](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16&redirectedfrom=MSDN)
-- Power BI: Employed to build an interactive dashboard, enabling dynamic data exploration and visual storytelling of insights.
+- SQL (Structured Query Language): Used to clean data, filter, or aggregate it for analysis before importing into Power BI. [Download Server Here](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) and [SMSS](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16&redirectedfrom=MSDN)
+- Power BI: Employed to build an interactive dashboard, enabling dynamic data exploration and visual storytelling of insights through visuals like pie charts, bar charts, line graphs, etc.
 - GitHub: Used for version control, documentation, and portfolio building, providing a platform to showcase the project.
 
 ### Data Characteristics
@@ -54,7 +54,7 @@ The dataset includes the following variables:
 
 ### Methodology
 ----
-### Data Overview and Initial Inspection
+### Data Loading and Initial Inspection
 Loaded the dataset in Excel & Power BI and did a preliminary inspection to understand its structure, types of data in each column, and overall cleanliness.
 ### Remove Duplicates
 Checked for and removed any duplicate rows, especially in critical columns like Order, Customer ID, and Product. This is essential for accurate calculations, like total revenue or unique customer counts.
@@ -66,14 +66,13 @@ Convert date fields (Order Date, Subscription Start, Subscription End) to a cons
 Ensure numeric fields like UnitPrice and Total Revenue are formatted to 2 decimal places.
 ### Correct Data Types
 Checked and set data types for each column (e.g., dates, numbers, text).
-### Create New Variables (Feature Engineering)
+### Create New Variables 
 Generated additional columns to add value to the analysis, such as:
 Total Revenue: Calculate if missing by using Quantity * UnitPrice.
 Subscription Duration: Calculated the length of each subscription as Subscription End - Subscription Start.
 ### Standardize Categorical Data
 Ensured uniformity in categorical columns (Region, Product, Subscription Type):
 Remove extra spaces, standardize casing (e.g., title case), and correct spelling inconsistencies.
-Map similar categories together if necessary (e.g., merging "North America" and "NA" into "North America").
 ### Data Validation and Logical Consistency Checks
 Performed logical checks, such as:
 Ensuring Subscription End dates are after Subscription Start.
@@ -83,25 +82,25 @@ Checking that calculated revenue values match expected results.
 Performed a final review of the cleaned data, confirming that all transformations are applied correctly.
 Document each cleaning step in GitHub, detailing the rationale and impact of the changes made.
 
-### Analysis
+### Exploratory Data Analysis
 ---
+EDA involved the exploring of the Data to answer some questions about the Data;
 ### Analysis Questions
-- retrieve the total sales for each product category.
-- find the number of sales transactions in each region.
-- find the highest-selling product by total sales value.
-- calculate total revenue per product.
-- calculate monthly sales totals for the current year.
-- find the top 5 customers by total purchase amount.
-- calculate the percentage of total sales contributed by each region.
-- identify products with no sales in the last quarter
-- retrieve the total number of customers from each region.
-- find the most popular subscription type by the number of customers.
-- find customers who canceled their subscription within 6 months.
-- calculate the average subscription duration for all customers.
-- find customers with subscriptions longer than 12 months.
-- calculate total revenue by subscription type.
-- find the top 3 regions by subscription cancellations.
-- find the total number of active and canceled subscriptions
+- What is the total sales for each product category?
+- How many sales transactions occurred in each region?
+- What is the top-selling product by total sales value?
+- How much revenue has each product generated?
+- What is the monthly breakdown of sales for the current year?
+- What are the top 5 customers with the highest total purchase amount?
+- What is the percentage contribution of total sales by each region?
+- Which products had no sales in the last quarter?
+- What is the total number of customers from each region?
+- What is the most popular subscription type based on the number of customers?
+- Which customers canceled their subscription within the last 6 months?
+- What is the average subscription duration for all customers?
+- What is the total revenue generated by each subscription type?
+- Which are the top 3 regions with the highest subscription cancellations?
+- What is the total number of active and canceled subscriptions?
 
 ### Approach
 ---
