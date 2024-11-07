@@ -1,5 +1,24 @@
 ### LITA_DATA_CAPSTONE_PROJECT-UD
 ---
+
+[Project Overview](#project-overview)
+
+[Data Sources](#data-sources)
+
+[Dataset Details](#dataset-details)
+
+[Key Attributes](#key-attributes)
+
+[Tools Used](#tools-used)
+
+[Data Characteristics](#data-characteristics)
+
+[Methodology](#methodology)
+
+[Exploratory Data Analysis](#exploratory-data-analysis)
+
+[Approach](#approach)
+
 ### Project Overview
 ----
 The LITA Data Capstone Project aims to enhance data analysis skills by analyzing and visualizing data, presenting insights into key metrics, 
